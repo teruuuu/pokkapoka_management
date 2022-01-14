@@ -12,7 +12,9 @@ class PatientsController < ApplicationController
     redirect_to patient
   end
 
-  def show; end
+  def show
+    @patient = Patient.find(params[:id])
+  end
 
   def edit; end
 
