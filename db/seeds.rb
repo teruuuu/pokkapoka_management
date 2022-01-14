@@ -7,11 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 ActiveRecord::Base.connection.execute("TRUNCATE TABLE users RESTART IDENTITY CASCADE")
+ActiveRecord::Base.connection.execute("TRUNCATE TABLE patients RESTART IDENTITY CASCADE")
 
 user1 = User.create!(email: "test1@example.com", password: "password1", name: "佐藤幸司")
 user2 = User.create!(email: "test2@example.com", password: "password2", name: "鈴木正人")
 user3 = User.create!(email: "test3@example.com", password: "password3", name: "高橋由希子")
 user4 = User.create!(email: "test4@example.com", password: "password4", name: "田中昇")
 user5 = User.create!(email: "test5@example.com", password: "password5", name: "伊藤亜希")
+
+user1.patients.create!(name: "佐藤一郎", birthday: "1930-04-01", gender: "男", address: "水戸市", degree_of_care: "要介護2", key_person: "長男")
 
 puts "データの投入に成功しました！"
