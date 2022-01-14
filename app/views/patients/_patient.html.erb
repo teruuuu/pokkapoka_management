@@ -1,0 +1,9 @@
+<div>
+  <p>【利用者ID】<%= patient.id %></p>
+  <p>【名前】 <%= patient.name %></p>
+  <p>
+    <%= link_to "詳細", patient %>
+    <%= link_to "編集", edit_patient_path(patient) %>
+  </p>
+</div>
+<hr>

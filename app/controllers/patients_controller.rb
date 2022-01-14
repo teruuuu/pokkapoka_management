@@ -1,5 +1,7 @@
 class PatientsController < ApplicationController
-  def index; end
+  def index
+    @patients = Patient.includes(:user).order(:created_at)
+  end
 
   def new; end
 
