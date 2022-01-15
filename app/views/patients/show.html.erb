@@ -1,10 +1,11 @@
 <h1>利用者情報詳細</h1>
 <p>【ID】 <%= @patient.id %></p>
 <p>【名前】 <%= @patient.name %></p>
-<p>【生年月日】 <%= @patient.birthday %></p>
+<p>【生年月日】 <%= l @patient.birthday %></p>
 <p>【年齢】
-  <% date_format = "%Y%m%d" %>
-  <%= "#{(Date.today.strftime(date_format).to_i - @patient.birthday.strftime(date_format).to_i) / 10000 } 歳"%>
+  <% d1 = Date.today %>
+  <% d2 = @patient.birthday %>
+  <%= "#{d1.year - d2.year - (d1.month > d2.month || (d1.month == d2.month && d1.day >= d2.day) ? 0 : 1)}歳" %>
 </p>
 <p>【性別】 <%= @patient.gender %></p>
 <p>【住所】 <%= @patient.address %></p>
