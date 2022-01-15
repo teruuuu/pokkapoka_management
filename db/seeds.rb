@@ -16,5 +16,7 @@ user4 = User.create!(email: "test4@example.com", password: "password4", name: "�
 user5 = User.create!(email: "test5@example.com", password: "password5", name: "伊藤亜希")
 
 user1.patients.create!(name: "佐藤一郎", birthday: "1930-04-01", gender: "男", address: "水戸市", degree_of_care: "要介護2", key_person: "長男")
+user2.patients.create!(name: "鈴木幸子", birthday: "1956-01-15", gender: "女", address: "石岡市", degree_of_care: "要介護3", key_person: "夫")
+user3.patients.create!(name: "高橋次郎", birthday: "1940-10-03", gender: "男", address: "那珂市", degree_of_care: "要介護1", key_person: "長女")
 
 puts "データの投入に成功しました！"
