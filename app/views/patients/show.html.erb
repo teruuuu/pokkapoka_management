@@ -22,6 +22,7 @@
 <% end %>
 <h2>連絡事項一覧</h2>
 <p><% @informations.each do |information| %>
+    <div><%= l information.user.created_at %></div>
     <%= information.comment %>
   </p>
 <% end %>
