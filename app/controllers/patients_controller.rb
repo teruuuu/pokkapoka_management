@@ -14,6 +14,8 @@ class PatientsController < ApplicationController
 
   def show
     @patient = Patient.find(params[:id])
+    @information = Information.new
+    @informations = @patient.informations.includes(:user).order(created_at: :desc)
   end
 
   def edit
