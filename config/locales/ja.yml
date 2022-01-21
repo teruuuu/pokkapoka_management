@@ -1,7 +1,7 @@
 ja:
   activerecord:
     models:
-      user: 従業員
+      user: スタッフ
       patient: 利用者
     attributes:
       user:
