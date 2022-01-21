@@ -1,6 +1,9 @@
 class PatientsController < ApplicationController
+  PER_PAGE = 15
+  PER_PAGE2 = 5
+
   def index
-    @patients = Patient.includes(:user).order(:created_at)
+    @patients = Patient.includes(:user).order(:created_at).page(params[:page]).per(PER_PAGE)
   end
 
   def new
@@ -14,6 +17,8 @@ class PatientsController < ApplicationController
 
   def show
     @patient = Patient.find(params[:id])
+    @information = Information.new
+    @informations = @patient.informations.includes(:user).order(created_at: :desc).page(params[:page]).per(PER_PAGE2)
   end
 
   def edit
