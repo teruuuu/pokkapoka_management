@@ -24,7 +24,9 @@
 <hr>
 <h2>連絡事項一覧</h2>
 <p><% @informations.each do |information| %>
-    <div><%= l information.user.created_at %></div>
+    <div><span class="name"><%= l information.user.created_at %>
+      </span>  【投稿者】<%= information.user.name %></div>
+    <hr width="30%" align="left">
     <div><%= safe_join(information.comment.split("\n"),tag(:br)) %></div>
     <% if current_user.id == information.user_id %>
       <%= link_to "削除", patient_information_path(information.patient.id, information.id), method: :delete, data: { confirm: "削除しますか？" } %>
