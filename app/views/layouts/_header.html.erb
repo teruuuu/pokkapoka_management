@@ -8,4 +8,5 @@
 <% else %>
   <%# 非ログイン時 %>
   <%= link_to "ログイン", new_user_session_path %>
+  <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>
 <% end %>
