@@ -1,4 +1,8 @@
 <h1>利用者一覧</h1>
-<%= link_to "新規利用者登録", new_patient_path %>
+<p><%= link_to "新規利用者登録", new_patient_path %>
+</p>
+<span class="id">ID</span><%= "名前" %>
+<hr>
+<p></p>
 <%= render @patients %>
 <%= paginate @patients %>

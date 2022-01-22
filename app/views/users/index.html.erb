@@ -1,5 +1,11 @@
 <h1>スタッフ一覧</h1>
+<span class="id">ID</span>名前
+<hr>
+<p></p>
 <% @users.each do |user| %>
-  <p>名前 <%= user.name %></p>
-  <p><%= link_to "詳細", user %></p>
+  <div>
+    <span class="id"> <%= user.id %></span>
+    <span class="name"><%= user.name %></span>
+    <%= link_to "詳細", user %>
+  </div>
 <% end %>

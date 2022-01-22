@@ -1,10 +1,10 @@
 <%= form_with model: @patient, local: true do |form| %>
   <p>
-    <%= form.label :name %>
+    <span class="head"><%= form.label :name %></span>
     <%= form.text_field :name, required: true %>
   </p>
   <p>
-    <%= form.label :birthday %>
+    <span class="head"><%= form.label :birthday %></span>
     <%= form.date_select(
              :birthday,
              start_year: 1910,
@@ -13,19 +13,19 @@
              required: true) %>
   </p>
   <p>
-    <%= form.label :gender %>
+    <span class="head"><%= form.label :gender %></span>
     <%= form.text_field :gender, required: true %>
   </p>
   <p>
-    <%= form.label :address %>
+    <span class="head"><%= form.label :address %></span>
     <%= form.text_field :address, required: true %>
   </p>
   <p>
-    <%= form.label :degree_of_care %>
+    <span class= "head"><%= form.label :degree_of_care %></span>
     <%= form.text_field :degree_of_care, required: true %>
   </p>
   <p>
-    <%= form.label :key_person %>
+    <span class="head"><%= form.label :key_person %></span>
     <%= form.text_field :key_person, required: true %>
   </p>
   <%= form.submit "送信" %>
