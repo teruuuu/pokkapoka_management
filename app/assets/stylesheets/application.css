@@ -25,3 +25,19 @@ span.name {
   display: inline-block;
   width: 9em;
 }
+@media (min-width: 800px) {
+  .parent {
+    display: flex;
+  }
+}
+.left {
+  height: 100%;
+  width: 100%;
+}
+.right {
+  height: 100%;
+  width: 100%;
+}
+.margin {
+  margin-left: 10px;
+}
