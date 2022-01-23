@@ -1,32 +1,47 @@
-<h1>利用者情報詳細</h1>
-<p>【ID】 <%= @patient.id %></p>
-<p>【名前】 <%= @patient.name %></p>
-<p>【生年月日】 <%= l @patient.birthday %></p>
-<p>【年齢】
-  <% d1 = Date.today %>
-  <% d2 = @patient.birthday %>
-  <%= "#{d1.year - d2.year - (d1.month > d2.month || (d1.month == d2.month && d1.day >= d2.day) ? 0 : 1)}歳" %>
-</p>
-<p>【性別】 <%= @patient.gender %></p>
-<p>【住所】 <%= @patient.address %></p>
-<p>【要介護度】 <%= @patient.degree_of_care %></p>
-<p>【キーパーソン】 <%= @patient.key_person %></p>
-<p>
-  <%= link_to "編集", edit_patient_path(@patient) %>
-</p>
-<p><%= link_to "利用者一覧", patients_path %></p>
-<h2>連絡事項投稿</h2>
-<%= form_with(model:[@patient, Information.new], url: patient_informations_path(@patient)) do |f| %>
-  <p><%= f.text_area :comment, required: true, :size=>"50x5" %></p>
-  <%= f.submit "送信" %></p>
-<% end %>
-<h2>連絡事項一覧</h2>
-<p><% @informations.each do |information| %>
-    <div><%= l information.user.created_at %></div>
-    <div><%= safe_join(information.comment.split("\n"),tag(:br)) %></div>
-    <% if current_user.id == information.user_id %>
-      <%= link_to "削除", patient_information_path(information.patient.id, information.id), method: :delete, data: { confirm: "削除しますか？" } %>
+<div class="margin">
+  <h1>利用者詳細</h1>
+  <div class="parent">
+    <div class="left">
+      <p>
+        <span class="head">【ID】</span>
+        <%= @patient.id %>
+      </p>
+      <p><span class="head">【名前】</span> <%= @patient.name %></p>
+      <p><span class="head">【生年月日】</span> <%= l @patient.birthday %></p>
+      <p><span class="head">【年齢】</span>
+        <% d1 = Date.today %>
+        <% d2 = @patient.birthday %>
+        <%= "#{d1.year - d2.year - (d1.month > d2.month || (d1.month == d2.month && d1.day >= d2.day) ? 0 : 1)}歳" %>
+      </p>
+      <p><span class="head">【性別】</span> <%= @patient.gender %></p>
+      <p><span class="head">【住所】</span> <%= @patient.address %></p>
+      <p><span class="head">【要介護度】</span> <%= @patient.degree_of_care %></p>
+      <p><span class="head">【キーパーソン】</span> <%= @patient.key_person %></p>
+      <p><%= link_to "編集", edit_patient_path(@patient) %></p>
+      <p><%= link_to "利用者一覧", patients_path %></p>
+    </div>
+    <div class=right>
+      <h2>連絡事項投稿</h2>
+      <%= form_with(model:[@patient, Information.new], url: patient_informations_path(@patient)) do |f| %>
+        <p><%= f.text_area :comment, required: true, :size=>"50x5" %></p>
+        <%= f.submit "送信" %></p>
     <% end %>
-  </p>
-<% end %>
-<%= paginate @informations %>
+    <hr>
+    <h2>連絡事項一覧</h2>
+    <p>
+      <% @informations.each do |information| %>
+        <div>
+          <span class="name"><%= l information.user.created_at %> </span>
+          【投稿者】<%= information.user.name %>
+        </div>
+        <hr width="30%" align="left">
+        <div><%= safe_join(information.comment.split("\n"),tag(:br)) %></div>
+        <% if current_user.id == information.user_id %>
+          <%= link_to "削除", patient_information_path(information.patient.id, information.id), method: :delete, data: { confirm: "削除しますか？" } %>
+        <% end %>
+      </p>
+    <% end %>
+    <%= paginate @informations %>
+  </div>
+</div>
+</div>

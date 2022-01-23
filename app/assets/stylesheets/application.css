@@ -13,3 +13,31 @@
  *= require_tree .
  *= require_self
  */
+span.head {
+  display: inline-block;
+  width: 8em;
+}
+span.id {
+  display: inline-block;
+  width: 3em;
+}
+span.name {
+  display: inline-block;
+  width: 9em;
+}
+@media (min-width: 800px) {
+  .parent {
+    display: flex;
+  }
+}
+.left {
+  height: 100%;
+  width: 100%;
+}
+.right {
+  height: 100%;
+  width: 100%;
+}
+.margin {
+  margin-left: 10px;
+}
