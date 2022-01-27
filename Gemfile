@@ -30,7 +30,7 @@ gem "bootsnap", ">= 1.4.4", require: false
 
 gem "activeadmin"
 gem "devise"
-
+gem "devise-bootstrap-views"
 gem "devise-i18n"
 gem "kaminari"
 gem "rails-i18n", "~> 6.0"

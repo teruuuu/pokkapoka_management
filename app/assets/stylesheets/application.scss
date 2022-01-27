@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
 span.head {
   display: inline-block;
   width: 8em;
@@ -40,4 +43,21 @@ span.name {
 }
 .margin {
   margin-left: 10px;
+}
+
+// 事業所名のフォント
+.font_name {
+  font-size: 100px;
+  font-family: 'ヒラギノ丸ゴ ProN';
+}
+
+// タイトルのセンタリング
+#title {
+  text-align: center;
+}
+
+body {
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
