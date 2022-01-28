@@ -64,6 +64,14 @@ ActiveRecord::Schema.define(version: 2022_01_21_084110) do
     t.index ["user_id"], name: "index_patients_on_user_id"
   end
 
+  create_table "time_frames", force: :cascade do |t|
+    t.time "start_time"
+    t.time "end_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["start_time", "end_time"], name: "index_time_frames_on_start_time_and_end_time", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
