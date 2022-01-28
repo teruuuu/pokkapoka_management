@@ -1,12 +1,16 @@
-<% if user_signed_in? %>
-  <%# ログイン時 %>
-  <%= link_to "TOPページ", root_path %>
-  <%= link_to "スタッフ一覧", users_path %>
-  <%= link_to "利用者一覧", patients_path %>
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" } %>
-  <%= "【ログイン中のユーザー名】#{current_user.name}" %>
-<% else %>
-  <%# 非ログイン時 %>
-  <%= link_to "ログイン", new_user_session_path %>
-  <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>
+<% unless current_page?(user_session_path) %>
+  <% if user_signed_in? %>
+    <%# ログイン時 %>
+    <%= "【ログイン中のユーザー名】#{current_user.name}" %>
+    <br>
+    <%= link_to "TOPページ", root_path %>&nbsp;
+    <%= link_to 'マイページ', user_path(current_user.id) %>&nbsp;
+    <%= link_to "スタッフ一覧", users_path %>&nbsp;
+    <%= link_to "利用者一覧", patients_path %>&nbsp;
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" } %>
+  <% else %>
+    <%# 非ログイン時 %>
+    <%= link_to "ログイン", new_user_session_path %>
+    <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>
+  <% end %>
 <% end %>
